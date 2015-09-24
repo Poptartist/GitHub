@@ -18,6 +18,10 @@ $_SESSION['date'] = date('F jS Y g:i a');
 		vertical-align: top;
 		font-family: Arial, Helvetica, sans-serif;
 	}
+	#wrapper {
+		position: relative;
+		margin: auto;
+	}
 	.box {
 		width: 150px;
 		height: 150px;
@@ -44,6 +48,13 @@ $_SESSION['date'] = date('F jS Y g:i a');
 		width: 500px;
 		height: 300px;
 		font-size: 11px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		border: 1px solid darkgrey;
+	}
+	p.results {
+		overflow: scroll;
+		overflow-x: hidden;
 	}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -101,17 +112,20 @@ $_SESSION['date'] = date('F jS Y g:i a');
 			<input type="hidden" name ="building" value="casino">
 			<input type="submit" value="Find Gold">
 		</form>
+
 	</div>
 	
-	<div id="activities">
-		<p class="activities">Activities: </p>
+	<div>
+		<p>Activities: </p>
+		<div id="activities">
 			<?php 
 			if (isset($_SESSION['sentence'])) {
 				foreach ($_SESSION['sentence'] AS $sentence) {
 			echo $sentence;
 				}
 			}?>
-
+		</div>
+		
 	</div>
 
 
