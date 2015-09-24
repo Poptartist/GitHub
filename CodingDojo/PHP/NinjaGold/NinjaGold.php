@@ -45,7 +45,7 @@ $_SESSION['date'] = date('F jS Y g:i a');
 	}
 	#activities {
 		padding: 5px;
-		width: 500px;
+		width: 375px;
 		height: 300px;
 		font-size: 11px;
 		overflow-y: scroll;
@@ -55,6 +55,10 @@ $_SESSION['date'] = date('F jS Y g:i a');
 	p.results {
 		overflow: scroll;
 		overflow-x: hidden;
+	}
+	p#activities {
+		padding: 0px;
+		margin: 0px;
 	}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -120,8 +124,8 @@ $_SESSION['date'] = date('F jS Y g:i a');
 		<div id="activities">
 			<?php 
 			if (isset($_SESSION['sentence'])) {
-				foreach ($_SESSION['sentence'] AS $sentence) {
-			echo $sentence;
+				foreach ($_SESSION['sentence'] as $sentence) {
+				echo $sentence;
 				}
 			}?>
 		</div>

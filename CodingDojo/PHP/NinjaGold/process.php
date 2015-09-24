@@ -19,11 +19,11 @@ if ($_POST['building'] == 'casino') {
 	$_SESSION['building'] = "casino";
 	$_SESSION['gold'] = rand(-50, 50);
 }
-if ($_SESSION['gold'] > 0) {
-	$_SESSION['sentence'][] = "<p class='green'>You entered a ".$_SESSION['building']." and earned ".$_SESSION['gold'].". (".$_SESSION['date'].")</p>";
+if ($_SESSION['gold'] >= 0) {
+	$_SESSION['sentence'][] = "<p class='green'>You entered a ".$_SESSION['building']." and earned ".$_SESSION['gold']." gold. (".$_SESSION['date'].")</p>";
 }
 if ($_SESSION['gold'] < 0) {
-	$_SESSION['sentence'][] = "<p class='red'>You entered a casino and lost ".$_SESSION['gold'].". (".$_SESSION['date'].")</p>";
+	$_SESSION['sentence'][] = "<p class='red'>You entered a casino and lost ".$_SESSION['gold']." gold. (".$_SESSION['date'].")</p>";
 }
 
 
