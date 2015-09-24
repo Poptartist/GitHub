@@ -6,7 +6,8 @@ if (!isset($_SESSION['total'])) {
 	$_SESSION['total'] = 0;
 }
 $_SESSION['date'] = date('F jS Y g:i a');
-echo var_dump($_SESSION);
+
+
 ?>
 
 <html>
@@ -26,11 +27,35 @@ echo var_dump($_SESSION);
 		border: 1px solid black;
 		border-radius: 20px;
 		margin: auto;
+		color: white;
 	}
 	.red {
 		color: red;
 	}
+	.green {
+		color: green;
+	}
+	textarea {
+		width: 500px;
+		height: 300px;
+	}
+	#activities {
+		padding: 5px;
+		width: 500px;
+		height: 300px;
+		font-size: 11px;
+	}
 	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+
+			function addActivities() {
+
+			}
+
+		});
+	</script>
 </head>
 <body>
 
@@ -38,6 +63,11 @@ echo var_dump($_SESSION);
 
 	<div id="header">
 		<h2>Your Gold: </h2><p><?php echo $_SESSION['total']?></p>
+	</div>
+	<div id="reset">
+		<form action='destroy.php'>
+			<input type = 'submit' value='Reset'>
+		</form>
 	</div>
 	
 	<div class="box">
@@ -53,7 +83,7 @@ echo var_dump($_SESSION);
 		<h3>(earns 5-10 gold)</h3>
 		<form action="process.php" method="post">
 			<input type="hidden" name ="building" value="cave">
-			<input type="submit" value="Find Gold">
+			<input type="submit"  value="Find Gold">
 		</form>
 	</div>
 	<div class="box">
@@ -61,7 +91,7 @@ echo var_dump($_SESSION);
 		<h3>(earns 2-5 gold)</h3>
 		<form action="process.php" method="post">
 			<input type="hidden" name ="building" value="house">
-			<input type="submit" value="Find Gold">
+			<input type="submit"  value="Find Gold">
 		</form>
 	</div>
 	<div class="box">
@@ -74,27 +104,18 @@ echo var_dump($_SESSION);
 	</div>
 	
 	<div id="activities">
-		<p>Activities: </p>
-		
+		<p class="activities">Activities: </p>
 			<?php 
-			if (!isset($_SESSION['gold']) && !isset($_SESSION['building'])) {
-			}
-			if ($_SESSION['gold'] > 0) {
-				echo "<div>You entered the ". $_SESSION['building'] ." and earned " .$_SESSION['gold']." (" .date('F jS Y g:i a') .")</br></div>";
-			}
-			if ($_SESSION['gold'] < 0) {
-				echo "<div class='red'>You entered the casino and lost " .$_SESSION['gold']." (" .$_SESSION['date'].")</div>";
-			}
-			?>
+			if (isset($_SESSION['sentence'])) {
+				foreach ($_SESSION['sentence'] AS $sentence) {
+			echo $sentence;
+				}
+			}?>
 
 	</div>
 
 
-	<div id="reset">
-		<form action='destroy.php'>
-			<input type = 'submit' value='Reset'>
-		</form>
-	</div>
+
 
 
 </body>
