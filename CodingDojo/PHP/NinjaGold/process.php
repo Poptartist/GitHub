@@ -1,7 +1,9 @@
 <?php
 
 session_start();
-$_SESSION['sentence'][] = array();
+if (!isset($_SESSION['sentence'])) {
+	$_SESSION['sentence'] = array();
+}
 
 if ($_POST['building'] == 'farm') {
 	$_SESSION['building'] = "farm";

@@ -79,11 +79,7 @@ $_SESSION['date'] = date('F jS Y g:i a');
 	<div id="header">
 		<h2>Your Gold: </h2><p><?php echo $_SESSION['total']?></p>
 	</div>
-	<div id="reset">
-		<form action='destroy.php'>
-			<input type = 'submit' value='Reset'>
-		</form>
-	</div>
+
 	
 	<div class="box">
 		<h2>Farm</h2>
@@ -124,12 +120,16 @@ $_SESSION['date'] = date('F jS Y g:i a');
 		<div id="activities">
 			<?php 
 			if (isset($_SESSION['sentence'])) {
-				foreach ($_SESSION['sentence'] as $sentence) {
-				echo $sentence;
+				foreach ($_SESSION['sentence'] as $sent) {
+				echo $sent;
 				}
 			}?>
 		</div>
-		
+		<div id="reset">
+		<form action='destroy.php'>
+			<input type = 'submit' value='Reset'>
+		</form>
+		</div>
 	</div>
 
 
